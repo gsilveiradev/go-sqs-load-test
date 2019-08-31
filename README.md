@@ -6,5 +6,6 @@ Performs concurrent sends/receives over an SQS queue, and computes average throu
 
 # TODO
 
-- [] compute percentiles
-- [] add flags
+- [ ] compute percentiles
+- [ ] add flags
+- [ ] more accurate latency measurement (include a timestamp in the message)
