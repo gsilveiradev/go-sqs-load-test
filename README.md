@@ -8,7 +8,7 @@ This project was forked from https://github.com/pedro-gutierrez/go-sqs
 
 ## Goal 
 
-It was changed to fit a specific case:
+After forked, it was changed to fit a specific case:
 
 > The application under load test owns a SQS queue subscribed to an SNS topic.
 > But the SNS topic is owned by another application.
@@ -38,12 +38,12 @@ var (
 Customise the `getRandomBody()` function to fit your needs. The following example simulates a message coming from an SNS topic:
 ```go
 func getRandomBody() (body string) {
-body = `
+	body = `
 	{
 	  "Type": "Notification",
 	  "MessageId": "%s",
-	  "TopicArn": "arn:aws:sns:eu-west-1:000000000000:seller-review-answer-requested",
-	  "Message": "{\"meta\":{},\"data\":{\"partner_urn\":\"urn:site:autovitro\",\"id\":\"%s\",\"buyer_uuid\":\"977f32c6-ac0e-4919-bede-cea649cb9f54\",\"seller_uuid\":\"2cd56dde-64b1-42b2-97d1-b5771372335b\",\"advert_id\":\"123456789\",\"channel\":\"EMAIL\",\"status\":\"WAITING_FOR_ANSWER\",\"conversation_occurred_at\":\"2022-05-07 04:43:28.266215\",\"advert_category\":\"29\"}}",
+	  "TopicArn": "arn:aws:sns:eu-west-1:000000000000:this-is-the-topic-origin",
+	  "Message": "{\"meta\":{},\"data\":{\"partner_urn\":\"urn:site:something\",\"id\":\"%s\",\"buyer_uuid\":\"...\",\"seller_uuid\":\"...\",\"advert_id\":\"...\",\"channel\":\"...\",\"status\":\"WAITING_FOR_ANSWER\",\"conversation_occurred_at\":\"2022-05-07 04:43:28.266215\",\"advert_category\":\"...\"}}",
 	  "Timestamp": "2022-06-27T09:26:18.423Z",
 	  "SignatureVersion": "1",
 	  "Signature": "EXAMPLEpH+..",
